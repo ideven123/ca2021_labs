@@ -47,16 +47,17 @@ module IDSegReg(
     input wire [31:0] PCF,
     output reg [31:0] PCD 
     );
-    
+    ////////////////////
     initial PCD = 0;
     always@(posedge clk)
         if(en)
             PCD <= clear ? 0: PCF;
-    
+    ///////////////////PCD的计算
+
     wire [31:0] RD_raw;
     InstructionRam InstructionRamInst (
-         .clk    (),                        //请完善代码
-         .addra  (),                        //请完善代码
+         .clk    (clk),                        //请完善代码
+         .addra  (A[31:2]),                        //请完善代码
          .douta  ( RD_raw     ),
          .web    ( |WE2       ),
          .addrb  ( A2[31:2]   ),
@@ -78,5 +79,5 @@ module IDSegReg(
         RD_old<=RD_raw;
     end    
     assign RD = stall_ff ? RD_old : (clear_ff ? 32'b0 : RD_raw );
-
+    ////////////////////////// RD的计算
 endmodule

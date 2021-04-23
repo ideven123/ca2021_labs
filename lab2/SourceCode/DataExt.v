@@ -22,6 +22,12 @@
 //实验要求  
     //补全模块  
 
+//    `define NOREGWRITE  3'b0	//	Do not write Register
+//    `define LB  3'd1			//	load 8bit from Mem then signed extended to 32bit
+//    `define LH  3'd2			//	load 16bit from Mem then signed extended to 32bit
+//    `define LW  3'd3			//	write 32bit to Register
+//    `define LBU  3'd4			//	load 8bit from Mem then unsigned extended to 32bit
+//    `define LHU  3'd5
 `include "Parameters.v"   
 module DataExt(
     input wire [31:0] IN,
@@ -31,6 +37,47 @@ module DataExt(
     );    
         
     // 请补全此处代码
-
+    always @(*) begin
+        case(RegWriteW)
+        `LB:
+        begin
+            case(LoadedBytesSelect)
+                2'b11: OUT<={{24{IN[31]}},IN[31:24]};
+                2'b10: OUT<={{24{IN[23]}},IN[23:16]};
+                2'b01: OUT<={{24{IN[15]}},IN[15:8]};
+                2'b00: OUT<={{24{IN[7]}},IN[7:0]};
+            default: OUT<=32'hxxxxxxxx;
+            endcase
+        end
+        `LH:
+        begin
+            case(LoadedBytesSelect)
+                2'b10: OUT<={16{IN[31]},IN[31:16]};
+                2'b00: OUT<={16{IN[15]},IN[15:0]}; 
+            default: OUT<=32'hxxxxxxxx;
+            endcase
+        end        
+        `LW:
+        OUT <= IN;
+        `LBU:
+        begin
+            case(LoadedBytesSelect)
+                2'b11: OUT<={24{0},IN[31:24]};
+                2'b10: OUT<={24{0},IN[23:16]};
+                2'b01: OUT<={24{0},IN[15:8]};
+                2'b00: OUT<={24{0},IN[7:0]};
+            default: OUT<=32'hxxxxxxxx;
+            endcase
+        end        
+        `LHU:
+        begin
+            case(LoadedBytesSelect)
+                2'b10: OUT<={16{0},IN[31:16]};
+                2'b00: OUT<={16{0},IN[15:0]}; 
+            default: OUT<=32'hxxxxxxxx;
+            endcase
+        end
+        default: OUT <= 32'hxxxxxxxx ;
+    end
 endmodule
 

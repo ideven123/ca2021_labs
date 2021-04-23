@@ -21,14 +21,31 @@
 //实验要求  
     //补全模块
  
+//    `define NOBRANCH  3'd0
+//    `define BEQ  3'd1
+//    `define BNE  3'd2
+//    `define BLT  3'd3
+//    `define BLTU  3'd4
+//    `define BGE  3'd5
+//    `define BGEU  3'd6 
 `include "Parameters.v"   
 module BranchDecisionMaking(
     input wire [2:0] BranchTypeE,
     input wire [31:0] Operand1,Operand2,
     output reg BranchE
     );
-    
     // 请补全此处代码
+    always @(*) begin
+    case(BranchTypeE)
+        `BEQ: BranchE <= (Operand1 == Operand2)? 1'b1 : 1'b0;
+        `BNE: BranchE <= (Operand1 != Operand2)? 1'b1 : 1'b0;
+        `BLT: BranchE <= ($signed(Operand1) < $signed(Operand2))? 1'b1:1'b0;
+        `BLTU: BranchE <= (Operand1 < Operand2)? 1'b1 : 1'b0;
+        `BGE: BranchE <= ($signed(Operand1) >= $signed(Operand2))? 1'b1:1'b0;
+        `BGEU:BranchE <= (Operand1 >= Operand2)? 1'b1 : 1'b0;
+        default:   BranchE<=1'b0;  //NOBRANCH
+    endcase        
+    end
 
 endmodule
 

@@ -36,6 +36,7 @@ module ControlUnit(
     input wire [6:0] Op,
     input wire [2:0] Fn3,
     input wire [6:0] Fn7,
+
     output wire JalD,
     output wire JalrD,
     output reg [2:0] RegWriteD,
@@ -50,7 +51,250 @@ module ControlUnit(
     output reg [2:0] ImmType        
     ); 
     
-    // 请补全此处代码
+    always @(*) begin
+    case (Op)
+        7'b1101111: //Jal
+        begin
+            JalD <= 1'b1;
+            JalrD <= 1'b0;
+            RegWriteD <= `LW;
+            MemToRegD <= 1'b0;
+            MemWriteD <= 4'b0000;
+            LoadNpcD <= 1'b1;
+            RegReadD <= 2'b00;
+            BranchTypeD <= 3'b000;
+            AluContrlD <= `ADD;
+            AluSrc2D <= 2'b00;  
+            AluSrc1D <= 1'b0;   
+            ImmType <= `JTYPE;
+        end            7'b1100111: //Jalr
+        begin
+            JalD <= 1'b0;
+            JalrD <= 1'b1;
+            RegWriteD <= `LW;
+            MemToRegD <= 1'b0;
+            MemWriteD <= 4'b0000;
+            LoadNpcD <= 1'b1;
+            RegReadD <= 2'b10;
+            BranchTypeD <= 3'b000;
+            AluContrlD <= `ADD;
+            AluSrc2D <= 2'b10;  //imm
+            AluSrc1D <= 1'b0;   //rs1
+            ImmType <= `ITYPE;
+        end
+        7'b1100011: //Branch
+            begin
+                JalD <= 1'b0;
+                JalrD <= 1'b0;
+                RegWriteD <= 3'b000;
+                MemToRegD <= 1'b0;
+                MemWriteD <= 4'b0000;
+                LoadNpcD <= 1'b0;
+                RegReadD <= 2'b11; 
+                AluContrlD <= `ADD;
+                AluSrc2D <= 2'b00;  //reg
+                AluSrc1D <= 1'b0;   //reg
+                ImmType <= `BTYPE;
+                case(Fn3)
+                    3'b000: BranchTypeD <= `BEQ;
+                    3'b001: BranchTypeD <= `BNE;
+                    3'b100: BranchTypeD <= `BLT;
+                    3'b101: BranchTypeD <= `BGE;
+                    3'b110: BranchTypeD <= `BLTU;
+                    3'b111: BranchTypeD <= `BGEU;
+                    default: BranchTypeD <= 3'b000;
+                endcase
+            end
+            7'b0110111: //LUI
+            begin
+                JalD <= 1'b0;
+                JalrD <= 1'b0;
+                RegWriteD <= `LW;
+                MemToRegD <= 1'b0;
+                MemWriteD <= 4'b0000;
+                LoadNpcD <= 1'b0;
+                RegReadD <= 2'b00;
+                BranchTypeD <= 3'b000;
+                AluContrlD <= `LUI;
+                AluSrc2D <= 2'b10;  //imm
+                AluSrc1D <= 1'b0;   //irrelavant
+                ImmType <= `UTYPE;
+            end
+            7'b0010111: //AUIPC
+            begin
+                JalD <= 1'b0;
+                JalrD <= 1'b0;
+                RegWriteD <= `LW;
+                MemToRegD <= 1'b0;
+                MemWriteD <= 4'b0000;
+                LoadNpcD <= 1'b0;
+                RegReadD <= 2'b00;
+                BranchTypeD <= 3'b000;
+                AluContrlD <= `ADD;
+                AluSrc2D <= 2'b10;  //imm
+                AluSrc1D <= 1'b1;   //pc
+                ImmType <= `UTYPE;
+            end 
+            7'b0010011: //alu imm
+            begin
+                JalD <= 1'b0;
+                JalrD <= 1'b0;
+                RegWriteD <= `LW;
+                MemToRegD <= 1'b0;
+                MemWriteD <= 4'b0000;
+                LoadNpcD <= 1'b0;
+                RegReadD <= 2'b10;
+                BranchTypeD <= 3'b000;
+                AluSrc1D <= 1'b0;   //rs1
+                ImmType <= `ITYPE;
+                case(Fn3)
+                    3'b000: 
+                    begin
+                        AluContrlD <= `ADD;
+                        AluSrc2D <= 2'b10;  //imm
+                    end
+                    3'b010: 
+                    begin
+                        AluContrlD <= `SLT;
+                        AluSrc2D <= 2'b10;  //imm
+                    end
+                    3'b011: 
+                    begin
+                        AluContrlD <= `SLTU;
+                        AluSrc2D <= 2'b10;  //imm
+                    end
+                    3'b100:
+                    begin
+                        AluContrlD <= `XOR;
+                        AluSrc2D <= 2'b10;  //imm
+                    end
+                    3'b110:
+                    begin
+                        AluContrlD <= `OR;
+                        AluSrc2D <= 2'b10;  //imm
+                    end
+                    3'b111:
+                    begin
+                        AluContrlD <= `AND;
+                        AluSrc2D <= 2'b10;  //imm
+                    end
+                    3'b001:
+                    begin 
+                        AluContrlD <= `SLL;
+                        AluSrc2D <= 2'b01;  //shamt
+                    end
+                    3'b101:
+                    begin
+                        case(Fn7)
+                            7'b0000000: 
+                            begin
+                                AluContrlD <= `SRL;
+                                AluSrc2D <= 2'b01;
+                            end
+                            7'b0100000:
+                            begin
+                                AluContrlD <= `SRA;
+                                AluSrc2D <= 2'b01;
+                            end
+                        endcase
+                    end
+                endcase
+            end 
+            7'b0110011: //alu reg
+            begin
+                JalD <= 1'b0;
+                JalrD <= 1'b0;
+                RegWriteD <= `LW;
+                MemToRegD <= 1'b0;
+                MemWriteD <= 4'b0000;
+                LoadNpcD <= 1'b0;
+                RegReadD <= 2'b11;
+                BranchTypeD <= 3'b000;
+                AluSrc2D <= 2'b00;  //rs2
+                AluSrc1D <= 1'b0;   //rs1
+                ImmType <= `RTYPE;
+                case(Fn3)
+                    3'b000:
+                    begin
+                        case(Fn7)
+                            7'b0000000: AluContrlD <= `ADD;
+                            7'b0100000: AluContrlD <= `SUB;
+                        endcase
+                    end
+                    3'b001: AluContrlD <= `SLL;
+                    3'b010: AluContrlD <= `SLT;
+                    3'b011: AluContrlD <= `SLTU;
+                    3'b100: AluContrlD <= `XOR;
+                    3'b101:
+                    begin
+                        case(Fn7)
+                            7'b0000000: AluContrlD <= `SRL;
+                            7'b0100000: AluContrlD <= `SRA;
+                        endcase
+                    end
+                    3'b110: AluContrlD <= `OR;
+                    3'b111: AluContrlD <= `AND;
+                endcase
+            end                                    
+            7'b0000011: //load
+            begin
+                JalD <= 1'b0;
+                JalrD <= 1'b0;
+                MemToRegD <= 1'b1;
+                MemWriteD <= 4'b0000;
+                LoadNpcD <= 1'b0;
+                RegReadD <= 2'b10;
+                BranchTypeD <= 3'b000;
+                AluContrlD <= `ADD;
+                AluSrc2D <= 2'b10;  //imm
+                AluSrc1D <= 1'b0;   //rs1
+                ImmType <= `ITYPE;
+                case(Fn3)
+                    3'b000: RegWriteD <= `LB;
+                    3'b001: RegWriteD <= `LH;
+                    3'b010: RegWriteD <= `LW;
+                    3'b100: RegWriteD <= `LBU;
+                    3'b101: RegWriteD <= `LHU;
+                endcase
+            end
+            7'b0100011: //store
+            begin
+                JalD <= 1'b0;
+                JalrD <= 1'b0;
+                RegWriteD <= 3'b000;   
+                MemToRegD <= 1'b0;
+                LoadNpcD <= 1'b0;
+                RegReadD <= 2'b11;
+                BranchTypeD <= 3'b000;
+                AluContrlD <= `ADD;
+                AluSrc2D <= 2'b10;  //imm
+                AluSrc1D <= 1'b0;   //rs1
+                ImmType <= `STYPE;
+                case(Fn3)
+                    3'b000: MemWriteD <= 4'b0001;
+                    3'b001: MemWriteD <= 4'b0011;
+                    3'b010: MemWriteD <= 4'b1111;
+                endcase
+            end
+            default
+            begin
+                JalD <= 1'b0;
+                JalrD <= 1'b0;
+                RegWriteD <= 3'b000;
+                MemToRegD <= 1'b0;
+                MemWriteD <= 4'b0000;
+                LoadNpcD <= 1'b0;
+                RegReadD <= 2'b00;
+                BranchTypeD <= 3'b000;
+                AluContrlD <= 4'd15;
+                AluSrc2D <= 2'b00;  
+                AluSrc1D <= 1'b0;   
+                ImmType <= `JTYPE;
+            end
+    endcase    
+    end
 
+    // 请补全此处代码
+    
 endmodule
 

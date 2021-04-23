@@ -33,7 +33,7 @@
     //);   
 //注意事项
     //输入到DataRam的addra是字地址，一个字32bit
-    //请配合DataExt模块实现非字对齐字节load
+    //请配合DataExt模块实现非字对齐字节load     //复原
     //请通过补全代码实现非字对齐store
 
 
@@ -84,10 +84,10 @@ module WBSegReg(
 
     wire [31:0] RD_raw;
     DataRam DataRamInst (
-        .clk    (???),                      //请完善代码
-        .wea    (???),                      //请完善代码
-        .addra  (???),                      //请完善代码
-        .dina   (???),                      //请完善代码
+        .clk    (clk),                      //请完善代码
+        .wea    (WE<<A[1:0]),                      //请完善代码
+        .addra  (A[31:2]),                      //请完善代码
+        .dina   (WD<<(8*A[1:0])),                      //请完善代码
         .douta  ( RD_raw         ),
         .web    ( WE2            ),
         .addrb  ( A2[31:2]       ),

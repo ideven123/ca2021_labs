@@ -39,7 +39,20 @@ module HarzardUnit(
     );
     
     // 请补全此处代码
-
+always @(*) begin
+    FlushF <= 0 ;
+    StallF <= 0 ;
+    StallM <= 0 ;
+    FlushM <= 0 ;
+    FlushE <= 0 ;
+    StallE <= 0 ;
+    StallM <= 0 ;
+    FlushM <= 0 ;
+    StallW <= 0 ;
+    FlushW <= 0 ;
+    Forward1E <= 0 ;
+    Forward2E <= 0 ;   
+end
 endmodule
 
   

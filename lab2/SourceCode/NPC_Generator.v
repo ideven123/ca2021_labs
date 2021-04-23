@@ -29,7 +29,13 @@ module NPC_Generator(
     input wire BranchE,JalD,JalrE,
     output reg [31:0] PC_In
     );
-    
+    always @(*) 
+    begin //有优先级, jal优先级最低 。 另外两个，为防止不必要的竞争, 不妨设BR > Jalr
+    if（BranchE）PC_IN =  BranchTarget;
+    else if(JalrE) PC_IN =  JalrTarget;
+    else if(JalD) PC_IN = JalTarget;
+    else PC_IN = PCF ;
+    end
     // 请补全此处代码
     
 endmodule
