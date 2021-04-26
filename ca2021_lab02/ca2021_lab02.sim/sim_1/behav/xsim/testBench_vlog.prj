@@ -1,0 +1,25 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../ca2021_lab02.srcs/sources_1/imports/SourceCode/ALU.v" \
+"../../../../ca2021_lab02.srcs/sources_1/imports/SourceCode/BranchDecisionMaking.v" \
+"../../../../ca2021_lab02.srcs/sources_1/imports/SourceCode/ControlUnit.v" \
+"../../../../ca2021_lab02.srcs/sources_1/imports/SourceCode/DataExt.v" \
+"../../../../ca2021_lab02.srcs/sources_1/imports/SourceCode/BRAMModule/DataRam.v" \
+"../../../../ca2021_lab02.srcs/sources_1/imports/SourceCode/EXSegReg.v" \
+"../../../../ca2021_lab02.srcs/sources_1/imports/SourceCode/HarzardUnit.v" \
+"../../../../ca2021_lab02.srcs/sources_1/imports/SourceCode/IDSegReg.v" \
+"../../../../ca2021_lab02.srcs/sources_1/imports/SourceCode/IFSegReg.v" \
+"../../../../ca2021_lab02.srcs/sources_1/imports/SourceCode/ImmOperandUnit.v" \
+"../../../../ca2021_lab02.srcs/sources_1/imports/SourceCode/BRAMModule/InstructionRam.v" \
+"../../../../ca2021_lab02.srcs/sources_1/imports/SourceCode/MEMSegReg.v" \
+"../../../../ca2021_lab02.srcs/sources_1/imports/SourceCode/NPC_Generator.v" \
+"../../../../ca2021_lab02.srcs/sources_1/imports/SourceCode/RV32Core.v" \
+"../../../../ca2021_lab02.srcs/sources_1/imports/SourceCode/RegisterFile.v" \
+"../../../../ca2021_lab02.srcs/sources_1/imports/SourceCode/WBSegReg.v" \
+"../../../../ca2021_lab02.srcs/sim_1/imports/Simulation/testBench.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

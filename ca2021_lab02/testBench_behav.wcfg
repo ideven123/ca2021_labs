@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="testBench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="testBench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="16615941667fs"></ZoomStartTime>
+      <ZoomEndTime time="16626841668fs"></ZoomEndTime>
+      <Cursor1Time time="16629000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="66"></NameColumnWidth>
+      <ValueColumnWidth column_width="88"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="27" />
+   <wvobject type="logic" fp_name="/testBench/CPU_CLK">
+      <obj_property name="ElementShortName">CPU_CLK</obj_property>
+      <obj_property name="ObjectShortName">CPU_CLK</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testBench/CPU_RST">
+      <obj_property name="ElementShortName">CPU_RST</obj_property>
+      <obj_property name="ObjectShortName">CPU_RST</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testBench/RV32Core1/ControlUnit1/JalD">
+      <obj_property name="ElementShortName">JalD</obj_property>
+      <obj_property name="ObjectShortName">JalD</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testBench/RV32Core1/ControlUnit1/JalrD">
+      <obj_property name="ElementShortName">JalrD</obj_property>
+      <obj_property name="ObjectShortName">JalrD</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/ControlUnit1/RegWriteD">
+      <obj_property name="ElementShortName">RegWriteD[2:0]</obj_property>
+      <obj_property name="ObjectShortName">RegWriteD[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/ControlUnit1/MemWriteD">
+      <obj_property name="ElementShortName">MemWriteD[3:0]</obj_property>
+      <obj_property name="ObjectShortName">MemWriteD[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testBench/RV32Core1/ControlUnit1/LoadNpcD">
+      <obj_property name="ElementShortName">LoadNpcD</obj_property>
+      <obj_property name="ObjectShortName">LoadNpcD</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/ControlUnit1/RegReadD">
+      <obj_property name="ElementShortName">RegReadD[1:0]</obj_property>
+      <obj_property name="ObjectShortName">RegReadD[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/ControlUnit1/BranchTypeD">
+      <obj_property name="ElementShortName">BranchTypeD[2:0]</obj_property>
+      <obj_property name="ObjectShortName">BranchTypeD[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/ControlUnit1/AluContrlD">
+      <obj_property name="ElementShortName">AluContrlD[3:0]</obj_property>
+      <obj_property name="ObjectShortName">AluContrlD[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/ControlUnit1/AluSrc2D">
+      <obj_property name="ElementShortName">AluSrc2D[1:0]</obj_property>
+      <obj_property name="ObjectShortName">AluSrc2D[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testBench/RV32Core1/ControlUnit1/AluSrc1D">
+      <obj_property name="ElementShortName">AluSrc1D</obj_property>
+      <obj_property name="ObjectShortName">AluSrc1D</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/ControlUnit1/ImmType">
+      <obj_property name="ElementShortName">ImmType[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ImmType[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/RegisterFile1/A1">
+      <obj_property name="ElementShortName">A1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">A1[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/RegisterFile1/A2">
+      <obj_property name="ElementShortName">A2[4:0]</obj_property>
+      <obj_property name="ObjectShortName">A2[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/RegisterFile1/RD1">
+      <obj_property name="ElementShortName">RD1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RD1[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/RegisterFile1/RD2">
+      <obj_property name="ElementShortName">RD2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RD2[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/ImmOperandUnit1/Out">
+      <obj_property name="ElementShortName">Out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Out[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/WBSegReg1/RdW">
+      <obj_property name="ElementShortName">RdW[4:0]</obj_property>
+      <obj_property name="ObjectShortName">RdW[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/RegWriteData">
+      <obj_property name="ElementShortName">RegWriteData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RegWriteData[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/RegisterFile1/RegFile">
+      <obj_property name="ElementShortName">RegFile[31:1][31:0]</obj_property>
+      <obj_property name="ObjectShortName">RegFile[31:1][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/ALU1/Operand1">
+      <obj_property name="ElementShortName">Operand1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Operand1[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/ALU1/Operand2">
+      <obj_property name="ElementShortName">Operand2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Operand2[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/ALU1/AluOut">
+      <obj_property name="ElementShortName">AluOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AluOut[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/ALU1/AluContrl">
+      <obj_property name="ElementShortName">AluContrl[3:0]</obj_property>
+      <obj_property name="ObjectShortName">AluContrl[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/IFSegReg1/PCF">
+      <obj_property name="ElementShortName">PCF[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PCF[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testBench/RV32Core1/IDSegReg1/RD">
+      <obj_property name="ElementShortName">RD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RD[31:0]</obj_property>
+   </wvobject>
+</wave_config>
