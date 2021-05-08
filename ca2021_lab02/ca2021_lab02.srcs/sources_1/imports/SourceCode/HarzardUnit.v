@@ -25,8 +25,6 @@
     //Forward1E, Forward2E                                                              控制forward
 //实验要求  
     //补全模块  
-    
-    
 module HarzardUnit(
     input wire CpuRst, ICacheMiss, DCacheMiss, 
     input wire BranchE, JalrE, JalD, 
@@ -42,33 +40,79 @@ module HarzardUnit(
 always @(*) begin
     if(!CpuRst)
     begin
-    FlushF <= 0 ;
-    StallF <= 0 ;
-    StallM <= 0 ;
-    FlushM <= 0 ;
-    FlushE <= 0 ;
-    StallE <= 0 ;
-    StallD <= 0 ;
-    FlushD <= 0 ;
-    StallW <= 0 ;
-    FlushW <= 0 ;
-    Forward1E <= 0 ;
-    Forward2E <= 0 ;  
+        FlushF <= 0 ;
+        StallE <= 0 ;
+        StallM <= 0 ;
+        FlushM <= 0 ;
+        StallW <= 0 ;
+        FlushW <= 0 ; 
+
+        //数据相关 。
+         //转发处理  Forward1
+        begin
+        if(Rs1E == RdM && RegWriteM != 3'b0 && RegReadE[1] == 1)   
+            Forward1E <= 2'b10;
+        else if(Rs1E == RdW && RegWriteW != 3'b0 && RegReadE[1] == 1)
+             Forward1E <= 2'b10;
+        else  Forward1E <= 2'b00;     
+        end 
+          //转发处理  Forward1
+        begin
+        if(Rs2E == RdM && RegWriteM != 3'b0 && RegReadE[0] == 1)   
+            Forward2E <= 2'b10;
+        else if(Rs2E == RdW && RegWriteW != 3'b0 && RegReadE[0] == 1)
+             Forward2E <= 2'b10;
+        else  Forward2E <= 2'b00;     
+        end 
+        
+        //控制相关
+          //load-use 插入bubble  
+        begin
+            //load-use 插入bubble
+            if((Rs1D == RdE || Rs2D = RdE) && MemToRegE == 1 )
+            begin  // 下一个时钟周期到来时 EX阶段不执行. 已经读入的指令 停顿以下
+                StallF <= 1;
+                FlushD <= 0;
+                StallD <= 1;
+                FlushE <= 1;
+            end
+            if(BranchE || JalrE)  
+            begin  //需要跳转 。 已经读入的flush 。是在EX阶段检查出来的
+                StallF <= 0;
+                FlushD <= 1;
+                StallD <= 0;
+                FlushE <= 1;
+            end
+            else if(JalD) 
+            begin  //需要跳转。已经读入的flush 。 是在ID段检查出来的
+                StallF <= 0;
+                FlushD <= 1;
+                StallD <= 0;
+                FlushE <= 0;           
+            end   
+            else
+            begin
+            FlushD <= 0;
+            FlushE <= 0;
+            StallD <= 0;
+            StallE <= 0;
+            end                     
+        end
     end
     else 
     begin
-    FlushF <= 1 ;
-    StallF <= 0 ;
-    StallD <= 0 ;
-    FlushD <= 1 ;
-    FlushE <= 1 ;
-    StallE <= 0 ;
-    StallM <= 0 ;
-    FlushM <= 1 ;
-    StallW <= 0 ;
-    FlushW <= 1 ;
-    Forward1E <= 0 ;
-    Forward2E <= 0 ;      
+        FlushF <= 1 ;
+        StallF <= 0 ;
+        StallD <= 0 ;
+        FlushD <= 1 ;
+        FlushE <= 1 ;
+        StallE <= 0 ;
+        StallM <= 0 ;
+        FlushM <= 1 ;
+        StallW <= 0 ;
+        FlushW <= 1 ;
+        Forward1E <= 0 ;
+        Forward2E <= 0 ;      
     end
      
 end
