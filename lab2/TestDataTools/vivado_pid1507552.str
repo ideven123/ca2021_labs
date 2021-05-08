@@ -1,0 +1,152 @@
+/*
+
+Xilinx Vivado v2019.1 (64-bit) [Major: 2019, Minor: 1]
+SW Build: 2552052 on Fri May 24 14:47:09 MDT 2019
+IP Build: 2548770 on Fri May 24 18:01:18 MDT 2019
+
+Process ID (PID): 1507552
+License: Customer
+
+Current time: 	Sat May 08 02:04:29 UTC 2021
+Time zone: 	Coordinated Universal Time (Etc/UTC)
+
+OS: Ubuntu
+OS Version: 5.4.73-1-pve
+OS Architecture: amd64
+Available processors (cores): 2
+
+Display: :0.0
+Screen size: 1024x768
+Screen resolution (DPI): 100
+Available screens: 1
+Available disk space: 9 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	9.0.4 64-bit
+Java home: 	/opt/Xilinx/Vivado/2019.1/tps/lnx64/jre9.0.4
+Java executable location: 	/opt/Xilinx/Vivado/2019.1/tps/lnx64/jre9.0.4/bin/java
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	ubuntu
+User home directory: /home/ubuntu
+User working directory: /home/ubuntu/ca_lab/lab2/TestDataTools
+User country: 	CN
+User language: 	zh
+User locale: 	zh_CN
+
+RDI_BASEROOT: /opt/Xilinx/Vivado
+HDI_APPROOT: /opt/Xilinx/Vivado/2019.1
+RDI_DATADIR: /opt/Xilinx/Vivado/2019.1/data
+RDI_BINDIR: /opt/Xilinx/Vivado/2019.1/bin
+
+Vivado preferences file location: /home/ubuntu/.Xilinx/Vivado/2019.1/vivado.xml
+Vivado preferences directory: /home/ubuntu/.Xilinx/Vivado/2019.1/
+Vivado layouts directory: /home/ubuntu/.Xilinx/Vivado/2019.1/layouts
+PlanAhead jar file location: 	/opt/Xilinx/Vivado/2019.1/lib/classes/planAhead.jar
+Vivado log file location: 	
+Vivado journal file location: 	
+Engine tmp dir: 	./.Xil/Vivado-1507552-VM1370-zwl
+
+Xilinx Environment Variables
+----------------------------
+XILINX: /opt/Xilinx/Vivado/2019.1/ids_lite/ISE
+XILINX_DSP: /opt/Xilinx/Vivado/2019.1/ids_lite/ISE
+XILINX_PLANAHEAD: /opt/Xilinx/Vivado/2019.1
+XILINX_VIVADO: /opt/Xilinx/Vivado/2019.1
+XILINX_VIVADO_HLS: /opt/Xilinx/Vivado/2019.1
+
+
+GUI allocated memory:	154 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 748 MB
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+selectList(PAResourceQtoS.SyntheticaGettingStartedView_RECENT_PROJECTS, "/home/ubuntu/lab05/lab05.xpr", 0); // q (O, cl)
+// by (cl):  Open Project : addNotify
+// Opening Vivado Project: /home/ubuntu/lab05/lab05.xpr. Version: Vivado v2019.1 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 756 MB. GUI used memory: 40 MB. Current time: 5/8/21, 2:04:31 AM UTC
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// Tcl Message: open_project /home/ubuntu/lab05/lab05.xpr 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 94 MB (+95692kb) [00:00:22]
+// [Engine Memory]: 783 MB (+669706kb) [00:00:22]
+// WARNING: HEventQueue.dispatchEvent() is taking  3885 ms.
+// Tcl Message: open_project /home/ubuntu/lab05/lab05.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2019.1/data/ip'. 
+// Project name: lab05; location: /home/ubuntu/lab05; part: xc7a100tcsg324-1
+// [Engine Memory]: 847 MB (+26109kb) [00:00:26]
+// Tcl Message: open_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 6361.551 ; gain = 60.852 ; free physical = 1728 ; free virtual = 3253 
+dismissDialog("Open Project"); // by (cl)
+// [Engine Memory]: 894 MB (+4780kb) [00:00:30]
+// Tcl Message: update_compile_order -fileset sources_1 
+// RDIResource.RDIViews_PROPERTIES: Properties: close view
+// [GUI Memory]: 99 MB (+917kb) [00:00:35]
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Coefficient Files]", 2); // B (F, cl)
+// PAPropertyPanels.initPanels (data.coe) elapsed time: 0.8s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Coefficient Files, data.coe]", 3, false); // B (F, cl)
+// WARNING: HEventQueue.dispatchEvent() is taking  1668 ms.
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Coefficient Files, data.coe]", 3, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Coefficient Files, data.coe]", 3, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Coefficient Files, data.coe]", 3, false, false, false, false, false, true); // B (F, cl) - Double Click
+// HMemoryUtils.trashcanNow. Engine heap size: 896 MB. GUI used memory: 47 MB. Current time: 5/8/21, 2:04:56 AM UTC
+selectCodeEditor("data.coe", 86, 76); // cl (w, cl)
+selectCodeEditor("data.coe", 86, 76); // cl (w, cl)
+selectCodeEditor("data.coe", 86, 76); // cl (w, cl)
+selectCodeEditor("data.coe", 86, 76); // cl (w, cl)
+selectCodeEditor("data.coe", 86, 76); // cl (w, cl)
+selectCodeEditor("data.coe", 86, 76); // cl (w, cl)
+selectCodeEditor("data.coe", 86, 76); // cl (w, cl)
+selectCodeEditor("data.coe", 86, 76); // cl (w, cl)
+selectCodeEditor("data.coe", 86, 76); // cl (w, cl)
+selectCodeEditor("data.coe", 86, 76); // cl (w, cl)
+selectCodeEditor("data.coe", 86, 76); // cl (w, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Coefficient Files, data.coe]", 4, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Coefficient Files, data.coe]", 3, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Coefficient Files, ins.coe]", 5, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Coefficient Files, ins.coe]", 5, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Coefficient Files, ins.coe]", 5, false, false, false, false, false, true); // B (F, cl) - Double Click
+selectCodeEditor("ins.coe", 70, 104); // cl (w, cl)
+selectCodeEditor("ins.coe", 70, 104); // cl (w, cl)
+selectCodeEditor("ins.coe", 70, 104); // cl (w, cl)
+selectCodeEditor("ins.coe", 70, 104); // cl (w, cl)
+selectCodeEditor("ins.coe", 70, 104); // cl (w, cl)
+selectCodeEditor("ins.coe", 70, 104); // cl (w, cl)
+selectCodeEditor("ins.coe", 70, 104); // cl (w, cl)
+selectCodeEditor("ins.coe", 70, 104); // cl (w, cl)
+selectCodeEditor("ins.coe", 70, 104); // cl (w, cl)
+selectCodeEditor("ins.coe", 70, 104); // cl (w, cl)
+selectCodeEditor("ins.coe", 70, 104); // cl (w, cl)
+// HMemoryUtils.trashcanNow. Engine heap size: 904 MB. GUI used memory: 47 MB. Current time: 5/8/21, 2:34:56 AM UTC
+// [GUI Memory]: 104 MB (+273kb) [00:41:29]
+// HMemoryUtils.trashcanNow. Engine heap size: 889 MB. GUI used memory: 43 MB. Current time: 5/8/21, 3:04:56 AM UTC
+// HMemoryUtils.trashcanNow. Engine heap size: 889 MB. GUI used memory: 43 MB. Current time: 5/8/21, 3:34:56 AM UTC
+// HMemoryUtils.trashcanNow. Engine heap size: 889 MB. GUI used memory: 43 MB. Current time: 5/8/21, 4:04:56 AM UTC
+// HMemoryUtils.trashcanNow. Engine heap size: 889 MB. GUI used memory: 43 MB. Current time: 5/8/21, 4:34:56 AM UTC
+// HMemoryUtils.trashcanNow. Engine heap size: 889 MB. GUI used memory: 43 MB. Current time: 5/8/21, 5:04:56 AM UTC
+// HMemoryUtils.trashcanNow. Engine heap size: 889 MB. GUI used memory: 43 MB. Current time: 5/8/21, 5:34:56 AM UTC
+// HMemoryUtils.trashcanNow. Engine heap size: 889 MB. GUI used memory: 43 MB. Current time: 5/8/21, 6:04:56 AM UTC
